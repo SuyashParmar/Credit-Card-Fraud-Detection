@@ -1,41 +1,75 @@
+# Credit Card Fraud Detection System
 
-# Credit Card Fraud Detection Model
+This repository contains a Machine Learning project for detecting fraudulent credit card transactions. It includes a Jupyter Notebook for data analysis and model training, and a Streamlit web application for identifying fraudulent transactions in real-time.
 
-This repository contains a credit card fraud detection model that uses machine learning algorithms to detect fraudulent transactions. The model was built using the Python programming language and scikit-learn library.
+## Project Overview
 
-The dataset used for training and testing the model is the Credit Card Fraud Detection dataset from Kaggle. The dataset contains credit card transactions a total of 284315 transactions, of which 492 (0.17%) are fraudulent.
+The goal of this project is to build a classifier that can distinguish between legitimate and fraudulent credit card transactions. 
+- **Dataset**: The model is trained on a dataset containing credit card transactions, including PCA-transformed features (V1-V28), Time, and Amount.
+- **Model**: A machine learning model (likely Random Forest or Decision Tree) is trained to classify transactions.
+- **Interface**: A user-friendly Streamlit interface allows users to input transaction details and get immediate feedback.
 
-Here is the link to the dataset:
-https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+## Repository Structure
 
+- `Credit card.ipynb`: Jupyter Notebook containing data preprocessing, exploratory data analysis (EDA), and model training steps.
+- `app.py`: The main Python script for the Streamlit web application.
+- `model.pkl`: The serialized pre-trained machine learning model.
+- `requirements.txt`: List of Python dependencies required to run the project.
+- `images.jpg`: Image asset used in the web application.
 
-The model uses a supervised learning algorithm called Random Forest Classifier to classify transactions as either fraudulent or non-fraudulent. SMOTE is used to handle imbalanced datasets like the credit card fraud dataset.
+## Installation
 
-The model achieved an accuracy of 99.98%, precision of 99.97%, and recall score was 1 on the test set.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/SuyashParmar/Credit-Card-Fraud-Detection.git
+    cd Credit-Card-Fraud-Detection
+    ```
 
+2.  **Install dependencies:**
+    It is recommended to use a virtual environment.
+    ```bash
+    pip install -r requirements.txt
+    ```
 
+## Usage
 
+1.  **Run the Streamlit App:**
+    ```bash
+    streamlit run app.py
+    ```
 
-### Deployment
-Inorder to deploy the fraud detection model, I have used streamlit.
+2.  **Input Features:**
+    The application expects input features corresponding to the processed data used for training.
+    
+    You need to provide **29 comma-separated values** in the text input field:
+    - **V1 through V28**: The principal components obtained with PCA.
+    - **Normalized Amount**: The transaction amount scaled using Standard Scaler.
+    
+    *Example Input format:*
+    `-1.359807, -0.072781, ..., 0.244964`
 
-Put all the V1-V28 features along with the amount(Normalized value) and predict whether it is a fraudulent or a legitimate transactions.
+3.  **Get Prediction:**
+    Click the "Submit" button. The model will predict if the transaction is **Legitimate** or **Fraudulent**.
 
-V1-V28: may be result of a PCA Dimensionality reduction to protect user identities and sensitive features.
+## Model Training
 
+The `Credit card.ipynb` notebook demonstrates:
+- Loading and exploring the dataset.
+- Handling class imbalance (fraud cases are much fewer than legitimate ones).
+- Feature scaling.
+- Train-test split.
+- Model Training and Evaluation using metrics like accuracy, precision, recall, and F1-score.
 
+## Dependencies
 
+- pandas
+- numpy
+- scikit-learn
+- imbalanced-learn
+- streamlit
+- Pillow
+- pickleshare
 
+## Author
 
-
-
-
-![alt text](https://img.shields.io/badge/Python-3.11-orange)   ![alt text](https://img.shields.io/badge/Streamlit-Share-brightgreen)
-###  Acknowledgements
-
-The dataset used in this project was obtained from Kaggle.
-The code for this project was inspired by the Credit Card Fraud Detection project by Data Flair.
-
-https://www.youtube.com/watch?v=239TaYSQI-s&t=1440s
-
-Feel free to contribute to the project by opening pull requests or creating issues if you encounter any problems.
+Created by [Suyash Parmar](https://github.com/SuyashParmar)
