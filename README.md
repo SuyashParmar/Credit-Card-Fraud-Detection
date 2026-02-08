@@ -70,6 +70,3 @@ The `Credit card.ipynb` notebook demonstrates:
 - Pillow
 - pickleshare
 
-## Author
-
-Created by [Suyash Parmar](https://github.com/SuyashParmar)
